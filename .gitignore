@@ -2,12 +2,24 @@
 node_modules/
 .npm
 
-# Variáveis de ambiente — NUNCA commitar
+# Variáveis de ambiente
 .env
+.env.*
 .env.local
 .env.production
+.env.staging
 backend/.env
+backend/.env.*
 frontend/.env
+
+# Chaves privadas
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+*.secret
 
 # Build
 dist/

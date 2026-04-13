@@ -1,0 +1,14 @@
+{
+  "name": "codesentinel",
+  "version": "1.0.0",
+  "description": "Ferramenta de auditoria de segurança para repositórios GitHub",
+  "private": true,
+  "scripts": {
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
+}
