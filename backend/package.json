@@ -4,13 +4,14 @@
   "description": "CodeSentinel API",
   "main": "src/server.js",
   "scripts": {
-    "dev": "node --watch src/server.js",
-    "start": "node src/server.js",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio",
-    "seed": "node prisma/seed.js"
-  },
+  "dev": "node --watch src/server.js",
+  "start": "node src/server.js",
+  "postinstall": "prisma generate",
+  "prisma:generate": "prisma generate",
+  "prisma:migrate": "prisma migrate dev",
+  "prisma:studio": "prisma studio",
+  "seed": "node prisma/seed.js"
+},
   "prisma": {
     "seed": "node prisma/seed.js"
   },
