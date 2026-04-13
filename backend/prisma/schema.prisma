@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String       @id @default(uuid())
+  email        String       @unique
+  password     String
+  name         String
+  githubToken  String?      @map("github_token")
+  createdAt    DateTime     @default(now()) @map("created_at")
+  repositories Repository[]
+
+  @@map("users")
+}
+
+model Repository {
+  id        String     @id @default(uuid())
+  userId    String     @map("user_id")
+  owner     String
+  name      String
+  fullName  String     @map("full_name")
+  url       String
+  private   Boolean    @default(false)
+  webhookId String?    @map("webhook_id")
+  createdAt DateTime   @default(now()) @map("created_at")
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  analyses  Analysis[]
+
+  @@unique([userId, fullName])
+  @@map("repositories")
+}
+
+model Analysis {
+  id            String     @id @default(uuid())
+  repositoryId  String     @map("repository_id")
+  score         Int
+  totalFindings Int        @default(0) @map("total_findings")
+  criticalCount Int        @default(0) @map("critical_count")
+  highCount     Int        @default(0) @map("high_count")
+  mediumCount   Int        @default(0) @map("medium_count")
+  lowCount      Int        @default(0) @map("low_count")
+  status        String     @default("completed")
+  createdAt     DateTime   @default(now()) @map("created_at")
+  repository    Repository @relation(fields: [repositoryId], references: [id], onDelete: Cascade)
+  findings      Finding[]
+  issueLogs     IssueLog[]
+
+  @@map("analyses")
+}
+
+model Finding {
+  id          String   @id @default(uuid())
+  analysisId  String   @map("analysis_id")
+  title       String
+  description String
+  severity    String
+  file        String
+  reference   String?
+  reason      String
+  suggestion  String
+  createdAt   DateTime @default(now()) @map("created_at")
+  analysis    Analysis @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+
+  @@map("findings")
+}
+
+model IssueLog {
+  id          String   @id @default(uuid())
+  analysisId  String   @map("analysis_id")
+  issueUrl    String   @map("issue_url")
+  issueNumber Int      @map("issue_number")
+  createdAt   DateTime @default(now()) @map("created_at")
+  analysis    Analysis @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+
+  @@map("issue_logs")
+}

@@ -1,0 +1,52 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradStroke" x1="180" y1="110" x2="760" y2="820" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A78BFA"></stop>
+      <stop offset="55%" stop-color="#6366F1"></stop>
+      <stop offset="100%" stop-color="#38BDF8"></stop>
+    </linearGradient>
+
+    <linearGradient id="gradGreen" x1="430" y1="430" x2="590" y2="595" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#BBF7D0"></stop>
+      <stop offset="100%" stop-color="#22C55E"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- fundo transparente -->
+
+  <g transform="translate(110 70)">
+    <!-- escudo -->
+    <path d="M402 36C527 36 646 76 731 131V356C731 568 591 723 402 820C213 723 73 568 73 356V131C158 76 277 36 402 36Z" fill="#0D1323" stroke="url(#gradStroke)" stroke-width="24" stroke-linejoin="round"></path>
+
+    <!-- contorno interno -->
+    <path d="M402 82C505 82 605 115 678 163V339C678 513 562 643 402 729C242 643 126 513 126 339V163C199 115 299 82 402 82Z" stroke="#A78BFA" stroke-width="8" opacity="0.7" fill="none"></path>
+
+    <!-- detalhes superiores -->
+    <path d="M303 198V234H348" stroke="#8B5CF6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path>
+    <circle cx="358" cy="234" r="10" fill="#8B5CF6"></circle>
+    <path d="M501 198V234H456" stroke="#38BDF8" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path>
+    <circle cx="446" cy="234" r="10" fill="#38BDF8"></circle>
+
+    <!-- olho -->
+    <path d="M198 394C259 313 545 313 606 394C545 475 259 475 198 394Z" fill="#0A1020" stroke="#7C3AED" stroke-width="20" stroke-linejoin="round"></path>
+
+    <path d="M232 373C290 325 514 325 572 373" stroke="#F8FAFC" stroke-width="22" stroke-linecap="round"></path>
+
+    <path d="M241 394C286 348 518 348 563 394C518 440 286 440 241 394Z" fill="#1B1A52"></path>
+
+    <path d="M303 363L261 394L303 425" stroke="#F8FAFC" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path>
+
+    <path d="M501 363L543 394L501 425" stroke="#F8FAFC" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path>
+
+    <circle cx="402" cy="394" r="58" fill="url(#gradGreen)"></circle>
+
+    <path d="M402 346A46 46 0 1 1 401.8 346" stroke="#0F172A" stroke-width="17" stroke-linecap="round" fill="none" stroke-dasharray="146 52" transform="rotate(-28 402 394)"></path>
+
+    <circle cx="402" cy="394" r="16" fill="#0F172A"></circle>
+
+    <!-- base -->
+    <path d="M236 590C294 628 355 652 402 665C481 638 541 603 582 561" stroke="#8B5CF6" stroke-width="24" stroke-linecap="round" opacity="0.96"></path>
+
+    <path d="M388 665C455 642 515 610 562 572" stroke="#C4B5FD" stroke-width="8" stroke-linecap="round" opacity="0.52"></path>
+  </g>
+</svg>
