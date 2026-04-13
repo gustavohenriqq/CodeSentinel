@@ -4,8 +4,6 @@ Ferramenta de auditoria de segurança para repositórios GitHub. Conecta ao seu 
 
 Fiz esse projeto pra aprender mais sobre segurança em pipelines de CI/CD e praticar full-stack com Node e React. Acabou ficando funcional de verdade, então resolvi deixar público.
 
-![preview](https://i.imgur.com/placeholder.png)
-
 ---
 
 ## O que ele faz
