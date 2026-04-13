@@ -82,9 +82,10 @@ export function Repository() {
   );
 
   const ultimaAnalise = repo.analyses?.[0];
-  // Usa o proxy do Vite (/api -> localhost:3001) para evitar CORS
-  const badgeUrl = `/api/badge/${id}`;
-  const badgeUrlAbsoluto = `${window.location.protocol}//${window.location.hostname}:3001/api/badge/${id}`;
+  // Em dev usa o proxy do Vite, em produção usa a URL real do backend
+  const backendBase = import.meta.env.VITE_API_URL || `${window.location.protocol}//${window.location.hostname}:3001`;
+  const badgeUrl = import.meta.env.VITE_API_URL ? `${backendBase}/api/badge/${id}` : `/api/badge/${id}`;
+  const badgeUrlAbsoluto = `${backendBase}/api/badge/${id}`;
   const badgeMd = `[![CodeSentinel](${badgeUrlAbsoluto})](${window.location.origin}/repos/${id})`;
 
   return (
