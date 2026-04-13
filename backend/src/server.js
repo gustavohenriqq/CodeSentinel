@@ -198,6 +198,10 @@ app.delete('/api/repos/:id/webhook', authMiddleware, async (req, res) => {
 });
 
 
+app.get('/', (req, res) => {
+  res.json({ name: 'CodeSentinel API', status: 'ok' });
+});
+
 app.get('/api/health', async (req, res) => {
   try {
     await prisma.$queryRaw`SELECT 1`;
