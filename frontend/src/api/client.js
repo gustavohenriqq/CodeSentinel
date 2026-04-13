@@ -1,7 +1,12 @@
 import axios from 'axios';
 
+// Em produção usa a URL do backend no Vercel, em dev usa o proxy do Vite
+const baseURL = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : '/api';
+
 const client = axios.create({
-  baseURL: '/api',
+  baseURL,
   timeout: 30000,
 });
 
